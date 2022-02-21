@@ -1,13 +1,20 @@
 import React, { useState } from "react";
 
+import { createSessions } from "../../services/api"
+
 import "./style.css";
 
 export const LoginPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleLogin = () => {
-    console.log(`${(email, password)}`, "login");
+  const handleLogin = async () => {
+    console.log('email', email);
+    console.log('password', password);
+    console.log("login");
+    
+    const response = await createSessions(email,password);
+    console.log('login', response.data);
   };
 
   return (
